@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="/css/contact.css">
+</head>
+<body>
+
+<!-- Navbar Section -->
+<header class="navbar">
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo" class="logo">
+    </div>
+    <nav class="navbar-links">
+        <a href="/" class="navbar-link">Home</a>
+        <a href="/contact" class="navbar-link">Contact</a>
+        <a href="/todo-view" class="navbar-link">Todo</a>
+    </nav>
+    <div class="sign-out-container">
+        <a href="/login" class="sign-out-button">Sign Out</a>
+    </div>
+</header>
+
+<!-- Contact Form Section -->
 <div class="container">
     <h1>Contact Us</h1>
     <form>
@@ -5,7 +33,7 @@
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" required>
         </div>
-        <div classs="form-group">
+        <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" required>
         </div>
@@ -13,6 +41,11 @@
             <label for="message">Message:</label>
             <textarea class="form-control" id="message" rows="5" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn submit-btn">Submit</button>
+
     </form>
 </div>
+
+
+</body>
+</html>

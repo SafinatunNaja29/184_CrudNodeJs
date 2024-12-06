@@ -22,16 +22,31 @@ router.get('/:id', (req, res) => {
 // Endpoint untuk menambahkan tugas baru
 router.post('/', (req, res) => {
     const { task } = req.body;
+
+    // Validasi jika task kosong
     if (!task || task.trim() === '') {
         return res.status(400).send('Tugas tidak boleh kosong');
     }
 
+    // Menyisipkan data ke dalam database
     db.query('INSERT INTO todos (task) VALUES (?)', [task.trim()], (err, results) => {
-        if (err) return res.status(500).send('Internal Server Error');
+        if (err) {
+            console.error('Error inserting data:', err);  // Log error
+            return res.status(500).send('Gagal memasukkan data ke database');
+        }
+
+        // Pesan jika data berhasil masuk
         const newTodo = { id: results.insertId, task: task.trim(), completed: false };
-        res.status(201).json(newTodo);
+        console.log('Data berhasil masuk:', newTodo);  // Log data yang berhasil masuk
+        res.status(201).json({
+            message: 'Data berhasil masuk ke database',
+            data: newTodo
+        });
     });
 });
+
+
+
 
 // Endpoint untuk memperbarui tugas
 router.put('/:id', (req, res) => {
